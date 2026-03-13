@@ -1,0 +1,14 @@
+name: Purge jsDelivr cache
+
+on:
+  push:
+    paths:
+      - stocks.json
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache
+        run: |
+          curl -s "https://purge.jsdelivr.net/gh/brooksphilip/stocks@main/stocks.json"
